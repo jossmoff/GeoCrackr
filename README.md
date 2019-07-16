@@ -35,6 +35,7 @@ From here we can use [PyInstaller](https://www.pyinstaller.org/) to build the ap
 
 # Usage
 Simply run the program and provide the link of the game you wish to play. It will then redirect you and you can see where you've been dropped.
+
 ![enter image description here](https://i.imgur.com/ignVND4.gif)
 >Please note for .gif brevity I just estimated where abouts the location was.
 
