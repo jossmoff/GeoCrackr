@@ -1,5 +1,7 @@
 # GeoCrackr
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/33a232b0e6364dde9395fdbfb35e3743)](https://app.codacy.com/app/JossMoff/GeoCrackr?utm_source=github.com&utm_medium=referral&utm_content=JossMoff/GeoCrackr&utm_campaign=Badge_Grade_Dashboard)
+
 **GeoCrackr** is a Python [Selenium](https://www.seleniumhq.org/) webdriver wrapper that reveals a users position in the popular online game GeoGuessr for Windows currently.
 
 ## Installation
