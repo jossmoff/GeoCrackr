@@ -8,8 +8,6 @@
 from time import sleep
 import re
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
 
 __version__ = "0.1.0"
 
@@ -57,7 +55,6 @@ class Game(webdriver.Chrome):
         sleep(2)
       else:
         break    
-
     # Effectively splits at the second occurence of ','
     self._current_lat_lng = ",".join(link_part.split(",", 2)[:2])
 
@@ -78,15 +75,14 @@ class Game(webdriver.Chrome):
   def finished(self):
     return self._finished
 
-                                                    
 def main():                                               
   print(BANNER)
   url = input("Please enter a url: ")
-  
+
   # Create and add Chrome Options
   chrome_options = webdriver.ChromeOptions() 
   chrome_options.add_argument('--log-level=3')
-  
+
   # Open GeoGuesser
   game = Game('./drivers/chromedriver.exe' ,chrome_options)
   game.get(url)
@@ -95,7 +91,7 @@ def main():
     link = game.get_link()
     lat_lng = game.get_lat_lng()
     print("\nRound " + str(round_num) + "\nLat, Long: " + lat_lng)
-    
+
     # Checks to see if we have another active tab available
     # to open the google maps page in.
     if len(game.window_handles) == 1:
