@@ -15,10 +15,10 @@ BANNER = r"""
                                                           .-'';'-.
                                                         ,'   <_,-.`.
      _____             _____                _          /)   ,--,_>\_\
-    / ____|           / ____|              | |        |'   (      \_ |  
+    / ____|           / ____|              | |        |'   (      \_ |
    | |  __  ___  ___ | |     _ __ __ _  ___| | ___ __ |_    `-.    / |
    | | |_ |/ _ \/ _ \| |    | '__/ _` |/ __| |/ / '__| \`-.   ;  _(`/
-   | |__| |  __/ (_) | |____| | | (_| | (__|   <| |     `.(    \/ ,' 
+   | |__| |  __/ (_) | |____| | | (_| | (__|   <| |     `.(    \/ ,'
     \_____|\___|\___/ \_____|_|  \__,_|\___|_|\_\_|       `-....-'"""[1:]
 
 
@@ -54,11 +54,11 @@ class Game(webdriver.Chrome):
       except IndexError:
         sleep(2)
       else:
-        break    
+        break
     # Effectively splits at the second occurence of ','
     self._current_lat_lng = ",".join(link_part.split(",", 2)[:2])
 
-    # Return Google Maps Link for dropped location 
+    # Return Google Maps Link for dropped location
     return ('https://www.google.com/maps/place/' + self._current_lat_lng + '/'
             + self._current_lat_lng + ',15z')
 
@@ -75,12 +75,12 @@ class Game(webdriver.Chrome):
   def finished(self):
     return self._finished
 
-def main():                                               
+def main():
   print(BANNER)
   url = input("Please enter a url: ")
 
   # Create and add Chrome Options
-  chrome_options = webdriver.ChromeOptions() 
+  chrome_options = webdriver.ChromeOptions()
   chrome_options.add_argument('--log-level=3')
 
   # Open GeoGuesser
@@ -96,15 +96,15 @@ def main():
     # to open the google maps page in.
     if len(game.window_handles) == 1:
       game.execute_script("window.open('');")
-      
+
     # Switch to the new window
     game.switch_to.window(game.window_handles[1])
     game.get(link)
-    
+
     # Switch to Original Window
     game.switch_to.window(game.window_handles[0])
     game.wait(round_num)
-    
+
 
 if __name__ == "__main__":
     main()
